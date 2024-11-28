@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="800.0" prefWidth="1020.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.theculinaryacademy.Controller.PaymentFormController">
+    <children>
+
+        <!-- White Panel for Form Content -->
+        <AnchorPane fx:id="anpPayment" layoutX="90.0" layoutY="47.0" opacity="0.9" prefHeight="700.0" prefWidth="820.0" style="-fx-background-color: #ffffff; -fx-background-radius: 15;">
+            <children>
+                <!-- Header -->
+                <Text layoutX="277.0" layoutY="46.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-fill: #2D7DBC;" text="Payment Management">
+                    <font>
+                        <Font name="System Bold" size="30.0" />
+                    </font>
+                </Text>
+                  <TextField fx:id="txtId" layoutX="68.0" layoutY="127.0" promptText="Payment ID" style="-fx-background-radius: 8; -fx-padding: 5;" />
+                  <TextField fx:id="txtStatus" layoutX="68.0" layoutY="194.0" promptText="Payment Status" style="-fx-background-radius: 8; -fx-padding: 5;" />
+                  <TextField fx:id="txtCoursefee" layoutX="68.0" layoutY="257.0" promptText="Course Fee" style="-fx-background-radius: 8; -fx-padding: 5;" />
+                  <TextField fx:id="txtPayAmount" layoutX="543.0" layoutY="128.0" promptText="Payment Amount" style="-fx-background-radius: 8; -fx-padding: 5;" />
+                  <TextField fx:id="txtDate" layoutX="318.0" layoutY="128.0" promptText="Payment Date" style="-fx-background-radius: 8; -fx-padding: 5;" />
+                  <ComboBox fx:id="comboCourses" layoutX="318.0" layoutY="169.0" onAction="#comboCoursesOnAction" prefHeight="26.0" prefWidth="119.0" promptText="Select Course" style="-fx-background-radius: 8;" />
+                  <ComboBox fx:id="comboStudent" layoutX="318.0" layoutY="210.0" onAction="#comboStudentOnAction" promptText="Select Student" style="-fx-background-radius: 8;" />
+                <ComboBox fx:id="comboPayHistory" layoutX="318.0" layoutY="252.0" onAction="#comboPayHistoryOnAction" prefHeight="26.0" prefWidth="119.0" promptText="stu_cou_id" style="-fx-background-radius: 8;" />
+                  <Button fx:id="btnSave" layoutX="637.0" layoutY="334.0" onAction="#btnSaveOnAction" style="-fx-background-color: transparent; -fx-border-color: lightgray; -fx-border-radius: 20; -fx-text-fill: #F2AF3A;" text="Save">
+                      <font>
+                          <Font size="14.0" />
+                      </font>
+                  </Button>
+                  <Button fx:id="btnConfirm" layoutX="696.5999755859375" layoutY="334.0" onAction="#btnConfirmOnAction" style="-fx-background-color: transparent; -fx-border-color: lightgray; -fx-border-radius: 20; -fx-text-fill: #F3371A;" text="Confirm">
+                      <font>
+                          <Font size="14.0" />
+                      </font>
+                  </Button>
+
+                <!-- Table -->
+                <TableView fx:id="tblPayment" layoutX="15.0" layoutY="390.0" prefHeight="300.0" prefWidth="791.0" style="-fx-background-radius: 10;">
+                    <columns>
+                        <TableColumn fx:id="colId" prefWidth="80.0" text="ID" />
+                        <TableColumn fx:id="colUpfrontPay" prefWidth="140.0" text="Upfront Payment" />
+                        <TableColumn fx:id="colBalancePay" prefWidth="140.0" text="Balance Payment" />
+                        <TableColumn fx:id="colCourseId" prefWidth="80.0" text="Course ID" />
+                        <TableColumn fx:id="colStudentId" prefWidth="90.0" text="Student ID" />
+                        <TableColumn fx:id="colStatus" prefWidth="90.0" text="Status" />
+                        <TableColumn fx:id="colStudentCourseDetailId" prefWidth="90.0" text="Stu-Cou ID" />
+                        <TableColumn fx:id="colBtnRemove" prefWidth="80.0" text="Remove" />
+                    </columns>
+                </TableView>
+            <Label layoutX="68.0" layoutY="101.0" text="Payment ID">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Label>
+            <Label layoutX="318.0" layoutY="101.0" text="Payment Date">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Label>
+            <Label layoutX="68.0" layoutY="166.0" text="Payment Status">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Label>
+            <Label layoutX="68.0" layoutY="232.0" text="Course Fee">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Label>
+            <Label layoutX="545.0" layoutY="101.0" text="Payment Amount">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Label>
+            <Label layoutX="541.0" layoutY="193.0" text="Outstanding Amount">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Label>
+            <Label layoutX="541.0" layoutY="227.0" text="Upfront Payment">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Label>
+            <Label layoutX="541.0" layoutY="261.0" text="Status">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Label>
+            <Label layoutX="541.0" layoutY="295.0" text="Payment Date">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Label>
+            <Label fx:id="lblUpfrontAmount" layoutX="697.0" layoutY="229.0" prefHeight="18.0" prefWidth="72.0" />
+            <Label fx:id="lblBalanceAmount" layoutX="697.0" layoutY="194.0" prefHeight="18.0" prefWidth="72.0" />
+            <Label fx:id="lblStatus" layoutX="695.0" layoutY="262.0" prefHeight="18.0" prefWidth="72.0" />
+            <Label fx:id="lblDate" layoutX="695.0" layoutY="296.0" prefHeight="18.0" prefWidth="72.0" />
+            <TextField fx:id="txtStuCouDetail" layoutX="68.0" layoutY="320.0" promptText="Course ID" style="-fx-background-radius: 8; -fx-padding: 5;" />
+            <Label layoutX="68.0" layoutY="295.0" text="Course Id">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Label>
+            </children>
+        </AnchorPane>
+    </children>
+</AnchorPane>
